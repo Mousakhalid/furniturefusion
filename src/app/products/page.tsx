@@ -7,23 +7,15 @@ export const getProductData = async () => {
   const res = await client.fetch(`*[_type=='product']`)
   return res
 }
-interface ProductsMap {
-  slug: string,
-  _type: string,
-  name: string,
-  details: string,
-  images: string,
-  price: number,
 
-}
 const page = async () => {
-  const data: ProductsMap[] = await getProductData();
+  const data = await getProductData();
   console.log(data)
   return (
     <div>
 
       {
-        data.map(item => (
+        data.map((item:any) => (
           item.name
         ))
       }
